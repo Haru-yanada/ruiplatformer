@@ -403,60 +403,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     attemptJump()
 })
 function createEnemies () {
-    // enemy that moves back and forth
-    for (let value5 of tiles.getTilesByType(assets.tile`tile4`)) {
-        bumper = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . f f f f f f . . . . . . 
-            . . . f 7 2 7 7 7 2 f . . . . . 
-            . . f 7 7 7 2 7 2 7 7 f . . . . 
-            . . f 7 7 7 7 7 7 7 7 7 f . . . 
-            . f 7 7 7 2 7 7 7 2 7 7 f . . . 
-            . f 7 7 7 2 7 7 7 2 7 7 7 f . . 
-            . f 7 7 7 7 7 7 7 7 7 7 7 7 f . 
-            . f 7 7 7 7 2 2 2 7 7 7 7 7 f . 
-            . . f 7 7 2 2 7 2 2 7 7 7 7 f . 
-            . . f 7 7 2 7 7 7 2 2 7 7 7 f . 
-            . . . f 7 7 7 7 7 7 7 7 7 7 f . 
-            . . . . f f 7 7 7 7 7 7 7 f . . 
-            . . . . . . f f f f f f f . . . 
-            . . . . . . . . . . . . . . . . 
-            `, SpriteKind.Bumper)
-        tiles.placeOnTile(bumper, value5)
-        tiles.setTileAt(value5, assets.tile`tile0`)
-        bumper.ay = gravity
-        if (Math.percentChance(50)) {
-            bumper.vx = Math.randomRange(30, 60)
-        } else {
-            bumper.vx = Math.randomRange(-60, -30)
-        }
-    }
-    // enemy that flies at player
-    for (let value6 of tiles.getTilesByType(assets.tile`tile7`)) {
-        flier = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . f f f f f f f . . . . 
-            . . . . f 4 4 4 4 4 4 4 f . . . 
-            . . . f 4 5 5 4 4 4 5 5 4 f . . 
-            . f . f 4 4 4 5 4 5 4 4 4 f . f 
-            . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-            . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-            . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-            . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-            . . . f 4 4 5 5 5 5 5 4 4 f . . 
-            . . . . f 4 5 4 4 4 5 4 f . . . 
-            . . . . . f f f f f f f . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `, SpriteKind.Flier)
-        tiles.placeOnTile(flier, value6)
-        tiles.setTileAt(value6, assets.tile`tile0`)
-        animation.attachAnimation(flier, flierFlying)
-        animation.attachAnimation(flier, flierIdle)
-    }
+	
 }
 function showInstruction (text: string) {
     game.showLongText(text, DialogLayout.Bottom)
@@ -531,8 +478,6 @@ function spawnGoals () {
 let heroFacingLeft = false
 let coin: Sprite = null
 let playerStartLocation: tiles.Location = null
-let flier: Sprite = null
-let bumper: Sprite = null
 let mainCrouchRight: animation.Animation = null
 let mainCrouchLeft: animation.Animation = null
 let mainJumpRight: animation.Animation = null
